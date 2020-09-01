@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 import datetime
 import re
-import urlparse
+try:
+    import urlparse
+except ImportError:
+    from urllib.parse import urlparse
 
 import scrapy
 

@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import urlparse
+
+
+try:
+    import urlparse
+except ImportError:
+    from urllib.parse import urlparse
 
 import scrapy
 from scrapy.linkextractors import LinkExtractor

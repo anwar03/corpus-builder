@@ -15,15 +15,20 @@ class CommonSpider(CrawlSpider):
         del args['a']
         del args['kw']
         del args['self']
-#        del args['__class__']
+        del args['__class__']
 
         user_configuration = []
         valid_config = False
 
         # construct user's configuration
-        for key, value in args.iteritems():
-            if value:
-                user_configuration.append(key)
+        try:
+            for key, value in args.iteritems():
+                if value:
+                    user_configuration.append(key)
+        except AttributeError:
+            for key, value in args.items():
+                if value:
+                    user_configuration.append(key)
 
         # compare with allowed configurations
         for configuration in self.allowed_configurations:

@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import datetime
-import urlparse
+try:
+    import urlparse
+except ImportError:
+    from urllib.parse import urlparse
 
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import Rule
